@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCode
 {
@@ -11,12 +7,12 @@ namespace LeetCode
         static void Main(string[] args)
         {
             Console.WriteLine(IsPalindrome(121));
-            Console.ReadKey()
-;        }
+            Console.ReadKey();
+        }
 
         public static bool IsPalindrome(int x)
         {
-            if(x < 0)
+            if (x < 0)
             {
                 return false;
             }
