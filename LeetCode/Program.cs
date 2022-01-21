@@ -10,27 +10,28 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("[{0}]", string.Join(", ", TwoSum(new int[] { -1,-2,-3,-4,-5 }, -8)));
-            Console.ReadKey();
-        }
+            Console.WriteLine(IsPalindrome(121));
+            Console.ReadKey()
+;        }
 
-        public static int[] TwoSum(int[] nums, int target)
+        public static bool IsPalindrome(int x)
         {
-            for (int i = 0; i < nums.Length; i++)
+            if(x < 0)
             {
-                for (int j = i+1; j < nums.Length; j++)
-                {
-                    if(nums[i] + nums[j] == target)
-                    {
-                        return new []
-                        {
-                            i, j
-                        };
-                    }
-                }
+                return false;
             }
 
-            return new int[] {};
+            int number = x;
+            int reverse = 0;
+
+            while (x != 0)
+            {
+                int reminder = x % 10;
+                reverse = reverse * 10 + reminder;
+                x /= 10;
+
+            }
+            return reverse == number ? true : false;
         }
     }
 }
