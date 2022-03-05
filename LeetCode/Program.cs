@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,27 +11,21 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("[{0}]", string.Join(", ", TwoSum(new int[] { -1,-2,-3,-4,-5 }, -8)));
+            Console.Write("[{0}]", string.Join(", ", PlusOne(new int[] { 7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6 })));
             Console.ReadKey();
         }
 
-        public static int[] TwoSum(int[] nums, int target)
+        public static int[] PlusOne(int[] digits)
         {
-            for (int i = 0; i < nums.Length; i++)
+            string joined = String.Empty;
+            foreach(int digit in digits)
             {
-                for (int j = i+1; j < nums.Length; j++)
-                {
-                    if(nums[i] + nums[j] == target)
-                    {
-                        return new []
-                        {
-                            i, j
-                        };
-                    }
-                }
+                joined += digit.ToString();
             }
-
-            return new int[] {};
+            BigInteger number = BigInteger.Parse(joined);
+            number++;
+            var arr = number.ToString().Select(x =>int.Parse(x.ToString())).ToArray();
+            return arr;
         }
     }
 }
