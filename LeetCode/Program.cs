@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCode
 {
@@ -10,27 +7,42 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("[{0}]", string.Join(", ", TwoSum(new int[] { -1,-2,-3,-4,-5 }, -8)));
+            Console.WriteLine("{0}", IsValid("(({}[({})]))"));
             Console.ReadKey();
         }
 
-        public static int[] TwoSum(int[] nums, int target)
+
+        public static bool IsValid(string s)
         {
-            for (int i = 0; i < nums.Length; i++)
+            Stack<char> endings = new Stack<char>();
+
+            foreach (char c in s)
             {
-                for (int j = i+1; j < nums.Length; j++)
+                switch (c)
                 {
-                    if(nums[i] + nums[j] == target)
-                    {
-                        return new []
+                    case '(':
+                        endings.Push(')');
+                        break;
+                    case '{':
+                        endings.Push('}');
+                        break;
+                    case '[':
+                        endings.Push(']');
+                        break;
+
+                    case ')':
+                    case '}':
+                    case ']':
+                        if(endings.Count == 0 || endings.Pop() != c)
                         {
-                            i, j
-                        };
-                    }
+                            return false;
+                        }
+                        break;
                 }
             }
 
-            return new int[] {};
+            return endings.Count == 0;
         }
+
     }
 }
