@@ -12,6 +12,7 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Console.WriteLine(IsPalindrome(121));
             Console.ReadKey();
         }
@@ -35,39 +36,27 @@ namespace LeetCode
             }
             return reverse == number ? true : false;
             Console.WriteLine("{0}", IsValid("(({}[({})]))"));
+=======
+            Console.WriteLine("{0}", RemoveDuplicates(new int[] {1,1,2,3,5,5}));
+>>>>>>> Problem26_RemoveDuplicateFromSortedArray
             Console.ReadKey();
         }
 
 
-        public static bool IsValid(string s)
+        public static int RemoveDuplicates(int[] nums)
         {
-            Stack<char> endings = new Stack<char>();
+            int k = 0;
 
-            foreach (char c in s)
+            for(int i = 1; i < nums.Length; i++)
             {
-                switch (c)
+                if(nums[k] != nums[i])
                 {
-                    case '(':
-                        endings.Push(')');
-                        break;
-                    case '{':
-                        endings.Push('}');
-                        break;
-                    case '[':
-                        endings.Push(']');
-                        break;
-
-                    case ')':
-                    case '}':
-                    case ']':
-                        if(endings.Count == 0 || endings.Pop() != c)
-                        {
-                            return false;
-                        }
-                        break;
+                    k++;
+                    nums[k] = nums[i];
                 }
             }
 
+<<<<<<< HEAD
             return endings.Count == 0;
 
             Console.Write("[{0}]", string.Join(", ", PlusOne(new int[] { 7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6 })));
@@ -86,7 +75,9 @@ namespace LeetCode
             var arr = number.ToString().Select(x =>int.Parse(x.ToString())).ToArray();
             return arr;
 
+=======
+            return k+1;
+>>>>>>> Problem26_RemoveDuplicateFromSortedArray
         }
-
     }
 }
