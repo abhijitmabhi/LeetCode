@@ -7,42 +7,25 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("{0}", IsValid("(({}[({})]))"));
+            Console.WriteLine("{0}", RemoveDuplicates(new int[] {1,1,2,3,5,5}));
             Console.ReadKey();
         }
 
 
-        public static bool IsValid(string s)
+        public static int RemoveDuplicates(int[] nums)
         {
-            Stack<char> endings = new Stack<char>();
+            int k = 0;
 
-            foreach (char c in s)
+            for(int i = 1; i < nums.Length; i++)
             {
-                switch (c)
+                if(nums[k] != nums[i])
                 {
-                    case '(':
-                        endings.Push(')');
-                        break;
-                    case '{':
-                        endings.Push('}');
-                        break;
-                    case '[':
-                        endings.Push(']');
-                        break;
-
-                    case ')':
-                    case '}':
-                    case ']':
-                        if(endings.Count == 0 || endings.Pop() != c)
-                        {
-                            return false;
-                        }
-                        break;
+                    k++;
+                    nums[k] = nums[i];
                 }
             }
 
-            return endings.Count == 0;
+            return k+1;
         }
-
     }
 }
