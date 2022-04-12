@@ -10,11 +10,6 @@ namespace LeetCode
            
         }
 
-        public static string LongestCommonPrefix(string[] strs)
-        {
-           
-        }
-
 
     }
 }
