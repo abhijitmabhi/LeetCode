@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "R5wQageX3fieCGq48pO7scjdxKpjbLapDdxNAdF7sYSo+x3uXN455IZY+bJU0d3ZnEW88DEQ+T9ECfZ+wpgirQ==",
+  "success": true,
+  "projectFilePath": "C:\\Project\\Abhijit\\LeetCode\\LeetCode\\LeetCode.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abhijit.abhi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\abhijit.abhi\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
