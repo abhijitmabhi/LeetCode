@@ -7,7 +7,7 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            DeleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3))))));
+            DeleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
         }
 
         private static ListNode DeleteDuplicates(ListNode head)
@@ -22,21 +22,23 @@ namespace LeetCode
                 return head;
             }
 
-            ListNode current = head;
+            ListNode newHead = null;
 
-            while (current.next != null)
+            while(head != null)
             {
-                if (current.val == current.next.val)
-                {
-                    current.next = current.next.next;
-                }
-                else
-                {
-                    current = current.next;
-                }
+                var tempVal = head.val;
+
+                var tempNode = new ListNode();
+                tempNode.val = tempVal;
+
+                tempNode.next = newHead;
+                   
+                newHead = tempNode;
+
+                head = head.next;
             }
 
-            return head;
+            return newHead;
         }
     }
 }
