@@ -7,32 +7,33 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            MiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))));
+            RemoveElements(new ListNode(1, new ListNode(2, new ListNode(6, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))))), 6);
 
         }
 
-        private static ListNode MiddleNode(ListNode head)
+        private static ListNode RemoveElements(ListNode head, int val)
         {
-            ListNode slow = head;
-            ListNode fast = head;
+            if(head == null) return null;
 
-            if(head.next == null)
+
+            ListNode dummy = new ListNode();
+            dummy.next = head;
+
+            ListNode curr = dummy;
+
+            while(curr.next != null)
             {
-                return head;
-            }
-
-            while(slow != null) 
-            {
-                slow = slow.next;
-                fast = fast.next.next;
-
-                if(fast == null || fast.next == null)
+               if(curr.next.val == val)
                 {
-                    return slow;
+                    curr.next = curr.next.next;
+                }
+               else
+                {
+                    curr = curr.next;
                 }
             }
 
-            return slow;
+            return dummy.next;
         }
     }
 }
