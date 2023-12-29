@@ -7,54 +7,32 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            //ReversedLinkedList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
-            ReversedLinkedList_UsingRecursion(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
+            MiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))));
 
         }
 
-        private static ListNode ReversedLinkedList(ListNode head)
+        private static ListNode MiddleNode(ListNode head)
         {
-            if(head == null)
-            {
-                return null;
-            }
+            ListNode slow = head;
+            ListNode fast = head;
 
             if(head.next == null)
             {
                 return head;
             }
 
-            ListNode newHead = null;
-
-            // Comment
-            while(head != null)
+            while(slow != null) 
             {
-                var tempVal = head.val;
+                slow = slow.next;
+                fast = fast.next.next;
 
-                var tempNode = new ListNode();
-                tempNode.val = tempVal;
-
-                tempNode.next = newHead;
-                   
-                newHead = tempNode;
-
-                head = head.next;
+                if(fast == null || fast.next == null)
+                {
+                    return slow;
+                }
             }
 
-            return newHead;
-        }
-
-        private static ListNode ReversedLinkedList_UsingRecursion(ListNode head)
-        {
-            ListNode newHead = null;
-
-            while (head != null)
-            {
-                newHead = new ListNode(head.val, newHead);
-                head = head.next;
-            }
-
-            return newHead;
+            return slow;
         }
     }
 }
