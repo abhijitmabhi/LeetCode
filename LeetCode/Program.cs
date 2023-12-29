@@ -7,10 +7,12 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            DeleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
+            //ReversedLinkedList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
+            ReversedLinkedList_UsingRecursion(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))));
+
         }
 
-        private static ListNode DeleteDuplicates(ListNode head)
+        private static ListNode ReversedLinkedList(ListNode head)
         {
             if(head == null)
             {
@@ -36,6 +38,19 @@ namespace LeetCode
                    
                 newHead = tempNode;
 
+                head = head.next;
+            }
+
+            return newHead;
+        }
+
+        private static ListNode ReversedLinkedList_UsingRecursion(ListNode head)
+        {
+            ListNode newHead = null;
+
+            while (head != null)
+            {
+                newHead = new ListNode(head.val, newHead);
                 head = head.next;
             }
 
