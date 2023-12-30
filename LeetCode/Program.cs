@@ -10,6 +10,7 @@ namespace LeetCode
             MoveZeroes([1,0,1,0,12]);
         }
 
+        // Add a test comment
         public static void MoveZeroes(int[] nums)
         {
             int lastZeroPos = 0;
