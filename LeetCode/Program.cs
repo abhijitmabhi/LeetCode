@@ -7,54 +7,21 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            MoveZeroes([0, 1, 0, 3, 12]);
+            MoveZeroes([1,0,1,0,12]);
         }
 
-        public static int[] MoveZeroes(int[] nums)
+        public static void MoveZeroes(int[] nums)
         {
-            int curr = 0;
+            int lastZeroPos = 0;
 
-            while (curr < nums.Length)
+            for (int i =0; i < nums.Length; i++)
             {
-                if(curr + 1 == nums.Length)
+                if (nums[i] != 0)
                 {
-                    return nums;
+                    (nums[lastZeroPos], nums[i]) = (nums[i], nums[lastZeroPos]);
+                    lastZeroPos++;
                 }
-
-                if (nums[curr] == 0)
-                {
-                    int tempCurr = curr + 1;
-
-                    if (tempCurr + 1 == nums.Length && nums[nums.Length - 1] == 0)
-                    {
-                        return nums;
-                    }
-
-                    while (tempCurr < nums.Length)
-                    {
-                        if (nums[tempCurr] != 0)
-                        {
-                            int temp = nums[curr];
-                            nums[curr] = nums[tempCurr];
-                            nums[tempCurr] = temp;
-
-                            curr++;
-                            break;
-                        }
-                        else
-                        {
-                           tempCurr++;
-                        }
-                    }
-                }
-                else
-                {
-                    curr++;
-                }
-
             }
-
-            return nums;
         }
     }
 }
