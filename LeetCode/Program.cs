@@ -10,7 +10,6 @@ namespace LeetCode
             MoveZeroes([1,0,1,0,12]);
         }
 
-        // Move Zeroes to right
         public static void MoveZeroes(int[] nums)
         {
             int lastZeroPos = 0;
